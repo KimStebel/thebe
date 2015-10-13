@@ -1,0 +1,23 @@
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="static/main-built.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    $(function(){
+      new Thebe({
+        url:"http://localhost:8000",
+        tmpnb_mode: true,
+        kernel_name: "python"
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1>thebe test</h1>
+
+  <pre data-executable data-runnable="true">
+    print "hello"
+  </pre>
+</body>
+</html>
