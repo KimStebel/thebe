@@ -7,7 +7,7 @@
       new Thebe({
         url:"http://localhost:8000",
         tmpnb_mode: true,
-        kernel_name: "python"
+        kernel_name: "scala"
       });
     });
   </script>
@@ -17,7 +17,14 @@
   <h1>thebe test</h1>
 
   <pre data-executable data-runnable="true">
-    print "hello"
+import org.apache.spark.{SparkContext, SparkConf}
+import SparkContext._
+
+val logFile = "/etc/passwd"
+val logData = sc.textFile(logFile, 2).cache()
+val numAs = logData.filter(line => line.contains("a")).count()
+val numBs = logData.filter(line => line.contains("b")).count()
+println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
   </pre>
 </body>
 </html>
