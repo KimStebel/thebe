@@ -20,13 +20,9 @@
 	<pre data-code-language="python3" data-executable="true">
 import cloudant
 
-user = 'change me'
-password = 'change me'
-account = cloudant.Account(user)
-login = account.login(user, password)
-assert login.status_code == 200
-db = account.database('test')
-response = db.put()
+account = cloudant.Account('examples')
+db = account.database('animaldb')
+response = db.get('zebra')
 print(response.json())
 	</pre>
 </body>
