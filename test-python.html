@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Thebe Demo - Python</title>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="static/main-built.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    $(function(){
+      new Thebe({
+        url:"http://localhost:8000",
+				selector: 'pre[data-executable]',
+        tmpnb_mode: true,
+        kernel_name: "python3",
+				debug: true,
+				image_name: "kimstebel/thebe-demo-notebook"
+      });
+    });
+  </script>
+</head>
+<body>
+	<pre data-code-language="python3" data-executable="true">
+import cloudant
+
+user = 'change me'
+password = 'change me'
+account = cloudant.Account(user)
+login = account.login(user, password)
+assert login.status_code == 200
+db = account.database('test')
+response = db.put()
+print(response.json())
+	</pre>
+</body>
+</html>
