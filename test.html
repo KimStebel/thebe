@@ -1,30 +1,10 @@
 <html>
 <head>
-  <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
-  <script src="static/main-built.js" type="text/javascript" charset="utf-8"></script>
-  <script>
-    $(function(){
-      new Thebe({
-        url:"http://localhost:8000",
-        tmpnb_mode: true,
-        kernel_name: "scala"
-      });
-    });
-  </script>
+  <title>Thebe Demo</title>
 </head>
-
 <body>
-  <h1>thebe test</h1>
+  <a href="test-python.html">Python</a>
+  <a href="test-scala.html">Scala and Spark</a>
 
-  <pre data-executable data-runnable="true">
-import org.apache.spark.{SparkContext, SparkConf}
-import SparkContext._
-
-val logFile = "/etc/passwd"
-val logData = sc.textFile(logFile, 2).cache()
-val numAs = logData.filter(line => line.contains("a")).count()
-val numBs = logData.filter(line => line.contains("b")).count()
-println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
-  </pre>
 </body>
 </html>

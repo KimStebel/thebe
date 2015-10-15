@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Thebe Demo - Scala</title>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="static/main-built.js" type="text/javascript" charset="utf-8"></script>
+  <script>
+    $(function(){
+      new Thebe({
+        url:"http://localhost:8000",
+				selector: 'pre[data-executable]',
+        tmpnb_mode: true,
+        kernel_name: "scala",
+				debug: true,
+				image_name: "kimstebel/thebe-demo-notebook"
+      });
+    });
+  </script>
+</head>
+<body>
+  <pre data-code-language="scala" data-executable="true">
+import org.apache.spark.{SparkContext, SparkConf}
+import SparkContext._
+
+val data = sc.textFile("/etc/passwd", 2).cache()
+val Seq(numAs,numBs) = Seq("a", "b").map(letter => data.filter(line => line.contains(letter)).count())
+println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
+  </pre>
+
+</body>
+</html>
