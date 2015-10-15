@@ -25,6 +25,5 @@ val data = sc.textFile("/etc/passwd", 2).cache()
 val Seq(numAs,numBs) = Seq("a", "b").map(letter => data.filter(line => line.contains(letter)).count())
 println("Lines with a: %s, Lines with b: %s".format(numAs, numBs))
   </pre>
-
 </body>
 </html>
