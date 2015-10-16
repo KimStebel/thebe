@@ -20,7 +20,7 @@
 	<pre data-code-language="javascript" data-executable="true">
 var Cloudant = require("cloudant");
 var examples = Cloudant({account: 'examples'});
-var animaldb = cloudant.db.use('animaldb');
+var animaldb = examples.db.use('animaldb');
 animaldb.get('zebra', function(err, data){console.log(data);});
 	</pre>
 </body>
