@@ -27,7 +27,7 @@
 var Cloudant = require("cloudant");
 var examples = Cloudant({account: 'examples'});
 var animaldb = examples.db.use('animaldb');
-animaldb.get('zebra', function(err, data){console.log(data);});
+var res = animaldb.get('zebra', function(err, data){console.log(data);});
 	</pre>
 </body>
 </html>
