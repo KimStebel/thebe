@@ -6,19 +6,19 @@
   <script>
     $(function(){
       new Thebe({
-        url:"http://localhost:8000",
-				selector: 'pre[data-executable]',
+        url:"//185.73.38.147:8000",
+        selector: 'pre[data-executable]',
         tmpnb_mode: true,
-        kernel_name: "bash",
-				debug: true,
-				image_name: "kimstebel/thebe-demo-notebook"
+        kernel_name: "metakernel_bash",
+        debug: true,
+        image_name: "kimstebel/thebe-demo-notebook"
       });
     });
   </script>
 </head>
 <body>
 	<pre data-code-language="bash" data-executable="true">
-echo "hello"
+curl http://examples.cloudant.com/animaldb/zebra | jq '.'
 	</pre>
 </body>
 </html>
