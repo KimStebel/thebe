@@ -1,0 +1,4 @@
+rm -rf build
+mkdir build
+docker build -t kimstebel/thebe . && \
+docker run -v "$(pwd)/build:/projects:rw" kimstebel/thebe
